@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Guest snapshot test 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-body"
+  >
+    <h5
+      class="card-title"
+    >
+      <strong>
+        Firstname
+      </strong>
+       Lastname
+    </h5>
+  </div>
+</div>
+`;
