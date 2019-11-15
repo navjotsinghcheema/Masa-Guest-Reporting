@@ -1,5 +1,6 @@
 import React from 'react';
 
+import GuestsData from '../data/guests.json';
 import '../sass/index.scss';
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
@@ -25,7 +26,24 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);        
+        this.state = {
+            metadata: {},
+            guests: {}
+        }
     }        
+
+    componentDidMount() {
+        this.setState({
+            metadata: GuestsData["meta-data"],
+            guests: GuestsData.data
+        });
+    }
+    
+    componentWillUnmount() {
+        this.setState({
+            guests: {}
+        })
+    }
 
     render() {
         return (
@@ -34,6 +52,7 @@ class App extends React.Component {
             <div id="App-body" className="mt-5">
                 <Container>
                     Application...
+
                 </Container>                
             </div>            
         </div>

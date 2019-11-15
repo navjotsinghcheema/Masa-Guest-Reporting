@@ -9,11 +9,8 @@ npm run test
 # To update the bulid in the package, please run
 npm run dev
 
+# Wireframes available at 
+https://wireframe.cc/vh30wU
+
 # This application is built using
-> React.js
-> Bootstrap4
-> SASS/CSS
-> Node.js/Express.js
-> JEST 
-> Webpack4
-> Babel7
+> React.js, Bootstrap4, SASS/CSS, Node.js/Express.js, JEST, Webpack4, Babel7
