@@ -5,6 +5,8 @@ import '../sass/index.scss';
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 
+import GuestGrid from './GuestGrid';
+
 let headerStyles = {
     margin: '0 auto',
     textTransform: 'uppercase',
@@ -52,7 +54,8 @@ class App extends React.Component {
             <div id="App-body" className="mt-5">
                 <Container>
                     Application...
-
+                    
+                    <GuestGrid metadata={this.state.metadata} guests={this.state.guests} />
                 </Container>                
             </div>            
         </div>

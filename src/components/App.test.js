@@ -25,4 +25,11 @@ describe("guests.json sanity tests", () => {
       const metadataElementKeys = Guests["meta-data"]["payload"].map(item => item.id);
       expect(firstElementKeys).toContain(...metadataElementKeys)
     })
+
+    test("Data must contain a value for total spend and visit count as a positive number for each user", () => {
+      Guests.data.map(guest => {
+        expect(guest.visit_count).toBeGreaterThanOrEqual(0);
+        expect(guest.total_spend).toBeGreaterThanOrEqual(0);
+      })
+    })
   })
