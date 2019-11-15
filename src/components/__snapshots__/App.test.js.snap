@@ -2,8 +2,49 @@
 
 exports[`App snapshot test 1`] = `
 <div
-  className="App"
+  id="App"
 >
-  Haeloooo
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-light fixed-true"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="navbar-brand"
+        href="#"
+        style={
+          Object {
+            "letterSpacing": "0.71rem",
+            "margin": "0 auto",
+            "textTransform": "uppercase",
+          }
+        }
+      >
+        <span>
+          Cafe
+        </span>
+        <span
+          style={
+            Object {
+              "marginLeft": "10%",
+            }
+          }
+        >
+          Masa
+        </span>
+      </a>
+    </div>
+  </nav>
+  <div
+    className="mt-5"
+    id="App-body"
+  >
+    <div
+      className="container"
+    >
+      Application...
+    </div>
+  </div>
 </div>
 `;
