@@ -1,0 +1,10 @@
+@import 'bootstrap/scss/bootstrap.scss';
+
+$color-bg: #eae9eb;
+$color-text-info: $gray-500;
+$color-text-bold: $gray-900;
+$color-text-normal: $gray-700;
+
+html, body, #root, #root>div{
+    height: 100%
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #pre-loader {
+                text-align: center;
+                font-weight: 400;
+                margin-top: 10%;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+            #preloader-spinner {
+                width: 30px;
+                height: 30px;
+                border: 3px solid #717171;
+                border-radius: 50%;
+                border-top-color: black;
+                animation: spin 1s ease-in-out infinite;
+                -webkit-animation: spin 1s ease-in-out infinite;
+                margin: 0 auto;
+            }
+            
+            @keyframes spin {
+                 to { -webkit-transform: rotate(360deg); }
+            }
+            
+            @-webkit-keyframes spin {
+                to { -webkit-transform: rotate(360deg); }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="root">
+            <div id="pre-loader">
+                <h1>Cafe MASA Reporting</h1>
+                <div id="preloader-spinner"></div>
+            </div>            
+        </div>
+    </body>
+    <script src="/bundle.js" charset="utf-8"></script>
+
+</html>
