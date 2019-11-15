@@ -30,7 +30,7 @@ class App extends React.Component {
         super(props);        
         this.state = {
             metadata: {},
-            guests: {}
+            guests: []
         }
     }        
 
@@ -54,7 +54,7 @@ class App extends React.Component {
             <div id="App-body" className="mt-5">
                 <Container>
                     Application...
-                    
+
                     <GuestGrid metadata={this.state.metadata} guests={this.state.guests} />
                 </Container>                
             </div>            
