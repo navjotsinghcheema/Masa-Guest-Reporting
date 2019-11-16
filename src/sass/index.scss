@@ -8,3 +8,44 @@ $color-text-normal: $gray-700;
 html, body, #root, #root>div{
     height: 100%
 }
+
+.dropdown-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.masa-dropdown {
+    margin-left: 0.5rem;    
+}
+
+h2 {
+    margin-bottom: 0;
+    color: $color-text-bold;
+    text-decoration: overline;
+}
+
+.helper-text {
+    font-weight: 200;
+    font-size: 0.90rem;
+}
+
+// A react-bootstrap switch
+.custom-control .custom-switch {
+    cursor: pointer;
+}
+
+.tags-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    text-transform: capitalize;
+    padding: 0 0.25rem;
+    margin-right: 0.50rem;
+    margin-top: 0.50rem;
+    border: 1px solid $color-text-normal;
+    border-radius: 4px;
+}

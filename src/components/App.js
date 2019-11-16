@@ -2,7 +2,7 @@ import React from 'react';
 
 import GuestsData from '../data/guests.json';
 import '../sass/index.scss';
-import { Row, Col, Container, Navbar, Form, Dropdown, DropdownButton } from 'react-bootstrap';
+import { Row, Col, Container, Navbar, Dropdown, DropdownButton } from 'react-bootstrap';
 
 import GuestGrid from './GuestGrid';
 
@@ -84,7 +84,19 @@ class App extends React.Component {
     }
 
     filterGuests() {
-
+        this.setState({
+          filterMarketingAllowed: !this.state.filterMarketingAllowed
+        },() => {
+            if (this.state.filterMarketingAllowed) {                
+                this.setState({
+                    guests: GuestsData.data.filter(guest => guest.allow_marketing)
+                })
+            } else {
+                this.setState({
+                    guests: GuestsData.data
+                })
+            }
+        });
     }
 
     updateDataSort(eventKey) {
@@ -105,44 +117,64 @@ class App extends React.Component {
         //date.Month() returns months with values 0-11
         return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     }
+
     render() {
         return (
         <div id="App">   
             <Header />
             <div id="App-body" className="mt-5">
                 <Container>
-                    <Row>
+                    <div className="mb-5">
+                        <h2>Guest Information</h2>
+                        <p className="helper-text">
+                            Last updated: <span className="font-italic">{this.changeDateFormat(this.state.metadata.last_update)}</span>
+                        </p>
+                    </div>
+                    <Row className="mb-3">
                         <Col lg={6} xs={12}>
-                            <h2>Guest Information</h2>
-                            <p>Last updated: {this.changeDateFormat(this.state.metadata.last_update)}</p>
+                            <div className='custom-control custom-switch'>                        
+                                <input
+                                type='checkbox'
+                                className='custom-control-input'
+                                id='toggleMarketingAllowedSwitch'
+                                onChange={this.filterGuests}
+                                readOnly
+                                />         
+                                <label className='custom-control-label' htmlFor='toggleMarketingAllowedSwitch'>
+                                    Filter Marketing Enabled
+                                </label>               
+                            </div>
+                            <p className="helper-text">
+                                Showing {this.state.guests.length} results
+                            </p>
                         </Col>
                         <Col lg={6} xs={12}>
+                            <Row className="dropdown-container">
+                                <DropdownButton 
+                                    id="dropdown-factor" 
+                                    className="masa-dropdown"
+                                    onSelect={this.updateDataSort} 
+                                    title={"Sort By: " + this.state.sortingFactor}>
+                                    <Dropdown.Item eventKey="Visit Count" as="button">Visit Count</Dropdown.Item>
+                                    <Dropdown.Item eventKey="Total Spend" as="button">Total spend</Dropdown.Item>
+                                </DropdownButton>
 
-                            <DropdownButton 
-                                id="dropdown-factor" 
-                                onSelect={this.updateDataSort} 
-                                title={"Sort By: " + this.state.sortingFactor}>
-                                <Dropdown.Item eventKey="Visit Count" as="button">Visit Count</Dropdown.Item>
-                                <Dropdown.Item eventKey="Total Spend" as="button">Total spend</Dropdown.Item>
-                            </DropdownButton>
-
-                            <DropdownButton 
-                                id="dropdown-order" 
-                                onSelect={this.updateDataSort} 
-                                title={"Order By: " + this.state.sortingOrder}>
-                                <Dropdown.Item eventKey="Ascending" as="button">Ascending</Dropdown.Item>
-                                <Dropdown.Item eventKey="Descending" as="button">Descending</Dropdown.Item>
-                            </DropdownButton>
+                                <DropdownButton 
+                                    id="dropdown-order" 
+                                    className="masa-dropdown"
+                                    onSelect={this.updateDataSort} 
+                                    title={"Order By: " + this.state.sortingOrder}>
+                                    <Dropdown.Item eventKey="Ascending" as="button">Ascending</Dropdown.Item>
+                                    <Dropdown.Item eventKey="Descending" as="button">Descending</Dropdown.Item>
+                                </DropdownButton>
+                            </Row>
                         </Col>
                     </Row>
-                    <Form>
-                        <Form.Check 
-                            type="switch"
-                            id="marketing-enabled-switch"
-                            label="Filter Marketing Enabled"
-                        />
-                    </Form>
-                    <GuestGrid metadata={this.state.metadata} guests={this.state.guests} />
+                    
+                    <GuestGrid 
+                        metadata={this.state.metadata} 
+                        guests={this.state.guests} 
+                        allowMarketingToggle={this.state.filterMarketingAllowed}/>
                 </Container>                
             </div>            
         </div>

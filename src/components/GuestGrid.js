@@ -56,6 +56,7 @@ class GuestGrid extends React.Component {
                                 const {blueprintTypes, blueprintIdKeys} = this.mapBlueprint();
                                 return (<Guest key={index} 
                                                info={guest} 
+                                               allowMarketingToggle = { this.props.allowMarketingToggle }
                                                blueprintTypes={blueprintTypes} 
                                                blueprintIdKeys={blueprintIdKeys} />)                            
                         }}) 
