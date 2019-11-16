@@ -1,21 +1,15 @@
 import React from 'react';
+import { Row, Col, Container, Navbar, Dropdown, DropdownButton } from 'react-bootstrap';
 
 import GuestsData from '../data/guests.json';
 import '../sass/index.scss';
-import { Row, Col, Container, Navbar, Dropdown, DropdownButton } from 'react-bootstrap';
 
 import GuestGrid from './GuestGrid';
-
-let headerStyles = {
-    margin: '0 auto',
-    textTransform: 'uppercase',
-    letterSpacing: '0.71rem'
-};
 
 const Header = () => (    
     <Navbar expand="lg" variant="dark" bg="dark" fixed="top">
         <Container>
-            <Navbar.Brand href="#" style={headerStyles}>
+            <Navbar.Brand href="#" className="header">
                 <span>Cafe</span> 
                 <span style={{marginLeft: '10%'}}>Masa</span>
             </Navbar.Brand>
@@ -53,6 +47,7 @@ class App extends React.Component {
             metadata: GuestsData["meta-data"],
             guests: GuestsData.data
         }, () => {
+            //asynchronously calling sortGuests method after setState is finished execution
             this.sortGuests();
         });
     }
@@ -69,7 +64,6 @@ class App extends React.Component {
         this.state.metadata.payload.map(p => {
             if (p.label.toLowerCase() == this.state.sortingFactor.toLowerCase()) {
                 factor = p.id;
-                console.log("yeehaa")
             }
         })
 
@@ -130,6 +124,7 @@ class App extends React.Component {
         return (
         <div id="App">   
             <Header />
+
             <div id="App-body" style={{marginTop: '6rem'}}>
                 <Container>
                     <div className="mb-5">
@@ -156,6 +151,7 @@ class App extends React.Component {
                                 Showing {this.state.guests.length} results
                             </p>
                         </Col>
+                        
                         <Col lg={6} xs={12}>
                             <Row className="dropdown-container">
                                 <DropdownButton 
@@ -179,12 +175,14 @@ class App extends React.Component {
                         </Col>
                     </Row>
                     
+                    {/* Guestgrid loops through the list of guests and renders them */}
                     <GuestGrid 
                         metadata={this.state.metadata} 
                         guests={this.state.guests} 
                         allowMarketingToggle={this.state.filterMarketingAllowed}/>
                 </Container>                
-            </div>   
+            </div>  
+
             <Footer />         
         </div>
         );

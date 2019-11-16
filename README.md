@@ -4,6 +4,7 @@
 1. cd into the project folder
 2. npm install
 3. npm start
+4. Open localhost:3000 in browser
 
 ### To Run all the test cases, please run
 npm run test

@@ -1,7 +1,8 @@
 // 485566
 $theme-colors: (    
     "primary": #343a40,
-    "secondary": #F4F3F6
+    "secondary": #F4F3F6,
+    "secondary-dimmer": #fffffe
 );
 
 @import 'bootstrap/scss/bootstrap.scss';
@@ -13,6 +14,7 @@ $color-text-normal: $gray-700;
 html, body, #root, #root>div{
     height: 100%;
     background-color: theme-color-level(secondary);
+    color: theme-color-level(primary);
 }
 
 .dropdown-container {
@@ -51,8 +53,8 @@ h2 {
         padding: 0 0.25rem;
         margin-right: 0.50rem;
         margin-top: 0.50rem;
-        border: 1px solid $color-text-normal;
-        border-radius: 4px;
+        border: 0.085rem solid $color-text-normal;
+        border-radius: 0.2rem;
     }
 }
 
@@ -61,6 +63,17 @@ h2 {
     //     display: table-column-group;
     // }
 }
+
+.card {
+    background-color: theme-color-level(secondary-dimmer);
+    height: 100%;
+}
+
+.header {
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 0.71rem;
+};
 
 .footer {
     background-color: theme-color-level(primary);

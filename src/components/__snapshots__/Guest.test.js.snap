@@ -2,19 +2,8 @@
 
 exports[`Guest snapshot test 1`] = `
 <div
-  className="card"
+  className="mb-3 col-lg-4 col-md-6 col-sm-12 col-12"
 >
-  <div
-    className="card-body"
-  >
-    <h5
-      className="card-title"
-    >
-      <strong>
-        Firstname
-      </strong>
-       Lastname
-    </h5>
-  </div>
+  
 </div>
 `;

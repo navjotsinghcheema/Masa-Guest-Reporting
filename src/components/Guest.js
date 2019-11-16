@@ -14,18 +14,18 @@ class Guest extends React.Component {
 
     render() {
         return (
-            <Col lg={4} md={6} sm={12} xs={12}>
-                {/* To Add jitter to the containing div */}
-                <Col lg={12} xs={12}>
+            <Col className="mb-3" lg={4} md={6} sm={12} xs={12}>
                     {this.props.info ?                         
-                        <Card className="mt-2">
+                        <Card>
                             <Card.Body>
                                 <Card.Title>
                                     <strong className="mr-1">{this.props.info.first_name}</strong> 
                                     {this.props.info.last_name}
                                 </Card.Title>
                                 <table className="guest-info-table">
-                                    <tbody>
+                                    <tbody>                                        
+                                        <col width="40%" /> {/* To add some jitter when loading columns */}
+                                        <col width="60%" />
                                         {this.props.blueprintIdKeys.map((key, index) => {
                                             if (!["first_name", "last_name", "tags", "id"].includes(key) 
                                                     && this.props.info[key]) {
@@ -35,7 +35,6 @@ class Guest extends React.Component {
                                                         <tr key={index}>
                                                             <td>{this.props.blueprintTypes[key].label}</td>
                                                             <td className="pl-2">
-                                                                {/* {this.props.info[key]} */}
                                                                 {key == 'allow_marketing' ?
                                                                     '' + this.props.info[key]
                                                                     : this.props.info[key]
@@ -60,7 +59,6 @@ class Guest extends React.Component {
                         </Card>                        
                         : ''
                     }                    
-                </Col>
             </Col>            
         )
     }
