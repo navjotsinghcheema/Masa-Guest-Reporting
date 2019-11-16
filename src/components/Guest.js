@@ -24,7 +24,7 @@ class Guest extends React.Component {
                                     <strong className="mr-1">{this.props.info.first_name}</strong> 
                                     {this.props.info.last_name}
                                 </Card.Title>
-                                <table>
+                                <table className="guest-info-table">
                                     <tbody>
                                         {this.props.blueprintIdKeys.map((key, index) => {
                                             if (!["first_name", "last_name", "tags", "id"].includes(key) 
@@ -33,8 +33,8 @@ class Guest extends React.Component {
                                                     //do not show marketing true information when the user filters marketing only guests                                                    
                                                     return (
                                                         <tr key={index}>
-                                                            <td colSpan="2">{this.props.blueprintTypes[key].label}</td>
-                                                            <td colSpan="3" className="pl-2">
+                                                            <td>{this.props.blueprintTypes[key].label}</td>
+                                                            <td className="pl-2">
                                                                 {/* {this.props.info[key]} */}
                                                                 {key == 'allow_marketing' ?
                                                                     '' + this.props.info[key]

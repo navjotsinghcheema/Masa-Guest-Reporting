@@ -13,7 +13,7 @@ let headerStyles = {
 };
 
 const Header = () => (    
-    <Navbar expand="lg" variant="light" bg="light" fixed="true">
+    <Navbar expand="lg" variant="dark" bg="dark" fixed="top">
         <Container>
             <Navbar.Brand href="#" style={headerStyles}>
                 <span>Cafe</span> 
@@ -21,6 +21,14 @@ const Header = () => (
             </Navbar.Brand>
         </Container>
     </Navbar>
+);
+
+const Footer = () => (
+    <div className="footer">
+        <Container>
+            &copy; Cafe MASA | This app was built only for demo purposes
+        </Container>
+    </div>
 );
 
 class App extends React.Component {  
@@ -122,7 +130,7 @@ class App extends React.Component {
         return (
         <div id="App">   
             <Header />
-            <div id="App-body" className="mt-5">
+            <div id="App-body" style={{marginTop: '6rem'}}>
                 <Container>
                     <div className="mb-5">
                         <h2>Guest Information</h2>
@@ -141,7 +149,7 @@ class App extends React.Component {
                                 readOnly
                                 />         
                                 <label className='custom-control-label' htmlFor='toggleMarketingAllowedSwitch'>
-                                    Filter Marketing Enabled
+                                    Filter Marketing Allowed
                                 </label>               
                             </div>
                             <p className="helper-text">
@@ -176,7 +184,8 @@ class App extends React.Component {
                         guests={this.state.guests} 
                         allowMarketingToggle={this.state.filterMarketingAllowed}/>
                 </Container>                
-            </div>            
+            </div>   
+            <Footer />         
         </div>
         );
     }
