@@ -12,8 +12,12 @@ npm run test
 ### To update the build in the package, please run
 npm run dev
 
-### Wireframes available at 
-https://wireframe.cc/vh30wU
+### Wireframe
+![Repo List](screenshots_forREADME/wireframe.png)
+available at https://wireframe.cc/vh30wU
+
+### Bundle analysis
+![Repo List](screenshots_forREADME/bundle-analysis.png)
 
 ### This application is built using
 - React.js
